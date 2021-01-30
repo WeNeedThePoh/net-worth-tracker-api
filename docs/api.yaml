@@ -1,0 +1,18 @@
+openapi: 3.0.3
+servers:
+  - url: '{scheme}://api.xxx.com'
+    variables:
+      scheme:
+        description: 'The Net Worth tracker REST API is accessible via https and http'
+        enum:
+          - 'https'
+          - 'http'
+        default: 'https'
+info:
+  description: >-
+    This API is to serve the new worth platform web and mobile. An REST API built to be fast, flexible and simple.
+  version: 1.0.0
+  title: Net Worth Tracker API
+  contact:
+    name: WeNeedThePoh
+    url: 'https://github.com/WeNeedThePoh'
