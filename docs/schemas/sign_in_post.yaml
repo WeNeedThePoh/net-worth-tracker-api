@@ -1,0 +1,10 @@
+type: object
+properties:
+  token:
+    type: string
+  provider:
+    type: string
+    enum: [facebook, google, apple, twitter]
+required:
+  - token
+  - provider

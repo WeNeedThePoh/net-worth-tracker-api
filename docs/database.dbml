@@ -1,0 +1,75 @@
+Table users {
+  id int [pk, increment]
+  email varchar [not null]
+  first_name varchar
+  last_name varchar
+  password varchar
+  password_reset varchar
+  active bool [default: true]
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: null]
+  deleted_at timestamp [default: null]
+}
+
+Table currencies {
+  id int [pk, increment]
+  name varchar [not null]
+  symbol varchar [not null]
+}
+
+//ACCOUNTS TABLES
+Table accounts {
+  id int [pk, increment]
+  user_id int [ref: > users.id, not null]//In a shared account this indicates the owner.
+  type int [ref: > account_types.id]
+  currency_id int [ref: > currencies.id]
+  name varchar [not null]
+  amount float [default: 0]
+  icon varchar [not null]
+  color varchar [not null]
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: null]
+  deleted_at timestamp [default: null]
+}
+
+//This is for shared accounts || We can add permissions later
+Table account_users {
+  id int [pk, increment]
+  account_id int [ref: > accounts.id, not null]
+  user_id int [ref: > users.id, not null]
+}
+
+Table account_types {
+  id int [pk, increment]
+  name varchar [not null]
+}
+
+//TRANSACTIONS TABLES
+Table transactions {
+  id int [pk, increment]
+  account_id int [ref: > accounts.id, not null]
+  user_id int [ref: > users.id, not null]
+  currency_id int [ref: > currencies.id, not null]
+  category_id int [ref: > categories.id, not null]
+  transfer_account_id int [ref: > accounts.id]
+  amount float [not null]
+  description varchar
+  type varchar [not null]
+  location varchar
+  created_at timestamp [default: `now()`]
+  updated_at timestamp [default: null]
+}
+
+Table categories {
+  id int [pk, increment]
+  user_id int [ref: > users.id, default: null]
+  name varchar [not null]
+  type int [ref: > transaction_types.id]
+  icon varchar [not null]
+  color varchar [not null]
+}
+
+Table transaction_types {
+  id int [pk, increment]
+  name varchar [not null]
+}

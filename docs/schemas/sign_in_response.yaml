@@ -1,0 +1,6 @@
+type: object
+properties:
+  jwt_token:
+    type: string
+  exp:
+    type: int

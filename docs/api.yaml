@@ -16,3 +16,26 @@ info:
   contact:
     name: WeNeedThePoh
     url: 'https://github.com/WeNeedThePoh'
+paths:
+  /sign-in:
+    post:
+      summary: Social sign-in
+      tags:
+        - sign-in
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas/sign_in_post.yaml'
+            example:
+              $ref: 'examples/sign_in_post.json'
+      responses:
+        '204':
+          description: JWT Token and expire date
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/sign_in_response.yaml'
+              example:
+                $ref: 'examples/sign_in_response.json'
