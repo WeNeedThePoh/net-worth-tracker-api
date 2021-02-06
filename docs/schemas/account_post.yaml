@@ -1,0 +1,22 @@
+type: object
+properties:
+  name:
+    type: string
+  initial_amount:
+    type: float
+    default: 0
+  currency_id:
+    type: int
+  type_id:
+    type: int
+  icon_id:
+    type: int
+    default: 1
+  color_id:
+    type: int
+    default: 1
+required:
+  - name
+  - type
+  - currency_id
+  - type_id

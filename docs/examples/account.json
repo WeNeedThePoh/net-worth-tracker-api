@@ -1,0 +1,12 @@
+{
+    "id": 123,
+    "name": "Savings",
+    "initial_amount": 100,
+    "currency": {
+        "symbol": "€",
+        "name": "euro"
+    },
+    "type": "savings",
+    "icon": "/path/to/icon.svg",
+    "color": "#000000"
+}

@@ -24,7 +24,7 @@ Table accounts {
   type int [ref: > account_types.id]
   currency_id int [ref: > currencies.id]
   name varchar [not null]
-  amount float [default: 0]
+  initial_amount float [default: 0]
   icon varchar [not null]
   color varchar [not null]
   created_at timestamp [default: `now()`]

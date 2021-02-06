@@ -21,7 +21,7 @@ paths:
     post:
       summary: Social sign-in
       tags:
-        - sign-in
+        - users
       requestBody:
         required: true
         content:
@@ -39,3 +39,273 @@ paths:
                 $ref: 'schemas/sign_in_response.yaml'
               example:
                 $ref: 'examples/sign_in_response.json'
+  /users:
+    post:
+      summary: Create new user
+      tags:
+        - user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas/user_post.yaml'
+            example:
+              $ref: 'examples/user_post.json'
+      responses:
+        '201':
+          description: New user data
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/user.yaml'
+              example:
+                $ref: 'examples/user.json'
+        '400':
+          description: Expected error happened
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/user_error.yaml'
+              example:
+                $ref: 'examples/error.json'
+  /users/{user_id}:
+    parameters:
+      - in: path
+        name: user_id
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Fetch user data
+      tags: 
+        - users
+      responses:
+        '200':
+          description: User's data
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/user.yaml'
+              example:
+                $ref: 'examples/user.json'
+    patch:
+      summary: Update user data
+      tags:
+        - users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas/user_patch.yaml'
+            example:
+              $ref: 'examples/user_patch.json'
+      responses:
+        '204':
+          description: Successfuly updated user data
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/user_error.yaml'
+              example:
+                $ref: 'examples/error.json'
+        '400':
+          description: Expected error happened
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/user_error.yaml'
+              example:
+                $ref: 'examples/error.json'
+    delete:
+      tags:
+        - users
+      responses:
+        '204':
+          description: Successfuly deleted user data
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/user_error.yaml'
+              example:
+                $ref: 'examples/error.json'
+        '400':
+          description: Expected error happened
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/user_error.yaml'
+              example:
+                $ref: 'examples/error.json'
+  /users/{user_id}/accounts:
+    parameters:
+      - in: path
+        name: user_id
+        required: true
+        schema:
+          type: integer
+    post:
+      summary: Create new money account
+      tags:
+        - accounts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas/account_post.yaml'
+            example:
+              $ref: 'examples/account_post.json'
+      responses:
+        '201':
+          description: New account data
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/account.yaml'
+              example:
+                $ref: 'examples/accounts.json'
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/account_error.yaml'
+              example:
+                $ref: 'examples/error.json'
+        '400':
+          description: Expected error happened
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/account_error.yaml'
+              example:
+                $ref: 'examples/error.json'
+    get:
+      summary: Fetch all user money accounts
+      tags:
+        - accounts
+      responses:
+        '204':
+          description: User's money accounts
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/accounts.yaml'
+              example:
+                $ref: 'examples/accounts.json'
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/account_error.yaml'
+              example:
+                $ref: 'examples/error.json'
+        '400':
+          description: Expected error happened
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/account_error.yaml'
+              example:
+                $ref: 'examples/error.json'
+  /users/{user_id}/accounts/{account_id}:
+    parameters:
+      - in: path
+        name: user_id
+        required: true
+        schema:
+          type: integer
+      - in: path
+        name: account_id
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Fetch money account data
+      tags:
+        - accounts
+      responses:
+        '204':
+          description: User's money account
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/account.yaml'
+              example:
+                $ref: 'examples/account.json'
+        '404':
+          description: User/Account not found
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/account_error.yaml'
+              example:
+                $ref: 'examples/error.json'
+        '400':
+          description: Expected error happened
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/account_error.yaml'
+              example:
+                $ref: 'examples/error.json'
+    patch:
+      summary: Update money account data
+      tags:
+        - accounts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas/account_patch.yaml'
+            example:
+              $ref: 'examples/account_patch.json'
+      responses:
+        '204':
+          description: Successfuly updated money account
+        '404':
+          description: User/Account not found
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/account_error.yaml'
+              example:
+                $ref: 'examples/error.json'
+        '400':
+          description: Expected error happened
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/account_error.yaml'
+              example:
+                $ref: 'examples/error.json'
+    delete:
+      tags:
+        - accounts
+      responses:
+        '204':
+          description: Successfuly deleted money account
+        '404':
+          description: User/Account not found
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/account_error.yaml'
+              example:
+                $ref: 'examples/error.json'
+        '400':
+          description: Expected error happened
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/account_error.yaml'
+              example:
+                $ref: 'examples/error.json'

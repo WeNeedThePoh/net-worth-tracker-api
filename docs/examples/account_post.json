@@ -1,0 +1,8 @@
+{
+    "name": "Savings",
+    "initial_amount": 100,
+    "currency_id": 2,
+    "type_id": 1,
+    "icon_id": 2,
+    "color_id": 3
+}

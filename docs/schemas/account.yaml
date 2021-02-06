@@ -1,0 +1,21 @@
+type: object
+properties:
+  id:
+    type: int
+  name:
+    type: string
+  initial_amount:
+    type: float
+  currency:
+    type: object
+    properties:
+      symbol:
+        type: string
+      name:
+        type: string
+  type:
+    type: string
+  icon:
+    type: string
+  color:
+    type: string
