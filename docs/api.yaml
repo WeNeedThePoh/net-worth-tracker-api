@@ -191,7 +191,7 @@ paths:
       tags:
         - accounts
       responses:
-        '204':
+        '200':
           description: User's money accounts
           content:
             application/json:
@@ -232,7 +232,7 @@ paths:
       tags:
         - accounts
       responses:
-        '204':
+        '200':
           description: User's money account
           content:
             application/json:
@@ -309,3 +309,57 @@ paths:
                 $ref: 'schemas/account_error.yaml'
               example:
                 $ref: 'examples/error.json'
+  /account-types:
+    get:
+      summary: Fetch existing money account types
+      tags:
+        - accounts
+      responses:
+        '200':
+          description: Money account types
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/account_types.yaml'
+              example:
+                $ref: 'examples/account_types.json'
+  /account-icons:
+    get:
+      summary: Fetch existing money account icons
+      tags:
+        - accounts
+      responses:
+        '200':
+          description: Money account icons
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/account_icons.yaml'
+              example:
+                $ref: 'examples/account_icons.json'
+  /category-icons:
+    get:
+      summary: Fetch existing category icons
+      tags:
+        - categories
+      responses:
+        '200':
+          description: Category icons
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/category_icons.yaml'
+              example:
+                $ref: 'examples/category_icons.json'
+  /currencies:
+    get:
+      summary: Fetch existing currencies
+      responses:
+        '200':
+          description: Currencies
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/currencies.yaml'
+              example:
+                $ref: 'examples/currencies.json'

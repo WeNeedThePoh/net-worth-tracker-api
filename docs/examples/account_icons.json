@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "icon": "/path/to/icon.svg",
+        "color": "#111111"
+    },
+    {
+        "id": 2,
+        "icon": "/path/to/icon2.svg",
+        "color": "#222222"
+    },
+    {
+        "id": 3,
+        "icon": "/path/to/icon3.svg",
+        "color": "#333333"
+    }
+]

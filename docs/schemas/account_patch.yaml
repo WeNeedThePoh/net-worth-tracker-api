@@ -15,8 +15,3 @@ properties:
   color:
     type: string
     default: "#111111"
-required:
-  - name
-  - type
-  - currency_id
-  - type_id

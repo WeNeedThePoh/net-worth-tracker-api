@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "Savings"
+    },
+    {
+        "id": 2,
+        "name": "Cash"
+    },
+    {
+        "id": 3,
+        "name": "Investments"
+    }
+]
