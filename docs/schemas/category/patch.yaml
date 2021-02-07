@@ -1,0 +1,12 @@
+type: object
+properties:
+  name:
+    type: string
+  type:
+    type: string
+    enum: [expense, income]
+  icon_id:
+    type: int
+    default: 1
+  color:
+    type: string

@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "account_id": 2,
+        "amount": 10,
+        "description": "dinner",
+        "type": "expense",
+        "currency_id": 1,
+        "category_id": 2
+    },
+    {
+        "id": 2,
+        "account_id": 2,
+        "amount": 10,
+        "description": "payment",
+        "type": "income",
+        "currency_id": 1,
+        "category_id": 2
+    },
+]

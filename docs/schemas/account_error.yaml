@@ -1,8 +1,0 @@
-type: object
-properties:
-  error:
-    type: string
-  code:
-    type: string
-    enum: [USER_NOT_FOUND, INVALID_ACCOUNT_DATE, ERROR_UPDATE_ACCOUNT, ERROR_CREATE_ACCOUNT, ERROR_DELETE_ACCOUNT]
-    

@@ -43,30 +43,30 @@ paths:
     post:
       summary: Create new user
       tags:
-        - user
+        - users
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: 'schemas/user_post.yaml'
+              $ref: 'schemas/user/post.yaml'
             example:
-              $ref: 'examples/user_post.json'
+              $ref: 'examples/user/post.json'
       responses:
         '201':
           description: New user data
           content:
             application/json:
               schema:
-                $ref: 'schemas/user.yaml'
+                $ref: 'schemas/user/model.yaml'
               example:
-                $ref: 'examples/user.json'
+                $ref: 'examples/user/model.json'
         '400':
           description: Expected error happened
           content:
             application/json:
               schema:
-                $ref: 'schemas/user_error.yaml'
+                $ref: 'schemas/user/error.yaml'
               example:
                 $ref: 'examples/error.json'
   /users/{user_id}:
@@ -86,9 +86,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'schemas/user.yaml'
+                $ref: 'schemas/user/model.yaml'
               example:
-                $ref: 'examples/user.json'
+                $ref: 'examples/user/model.json'
     patch:
       summary: Update user data
       tags:
@@ -98,9 +98,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'schemas/user_patch.yaml'
+              $ref: 'schemas/user/patch.yaml'
             example:
-              $ref: 'examples/user_patch.json'
+              $ref: 'examples/user/patch.json'
       responses:
         '204':
           description: Successfuly updated user data
@@ -109,7 +109,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'schemas/user_error.yaml'
+                $ref: 'schemas/user/error.yaml'
               example:
                 $ref: 'examples/error.json'
         '400':
@@ -117,7 +117,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'schemas/user_error.yaml'
+                $ref: 'schemas/user/error.yaml'
               example:
                 $ref: 'examples/error.json'
     delete:
@@ -131,7 +131,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'schemas/user_error.yaml'
+                $ref: 'schemas/user/error.yaml'
               example:
                 $ref: 'examples/error.json'
         '400':
@@ -139,7 +139,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'schemas/user_error.yaml'
+                $ref: 'schemas/user/error.yaml'
               example:
                 $ref: 'examples/error.json'
   /users/{user_id}/accounts:
@@ -158,24 +158,24 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'schemas/account_post.yaml'
+              $ref: 'schemas/account/post.yaml'
             example:
-              $ref: 'examples/account_post.json'
+              $ref: 'examples/account/post.json'
       responses:
         '201':
           description: New account data
           content:
             application/json:
               schema:
-                $ref: 'schemas/account.yaml'
+                $ref: 'schemas/model.yaml'
               example:
-                $ref: 'examples/accounts.json'
+                $ref: 'examples/model.json'
         '404':
           description: User not found
           content:
             application/json:
               schema:
-                $ref: 'schemas/account_error.yaml'
+                $ref: 'schemas/account/error.yaml'
               example:
                 $ref: 'examples/error.json'
         '400':
@@ -183,7 +183,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'schemas/account_error.yaml'
+                $ref: 'schemas/account/error.yaml'
               example:
                 $ref: 'examples/error.json'
     get:
@@ -196,15 +196,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'schemas/accounts.yaml'
+                $ref: 'schemas/account/model.yaml'
               example:
-                $ref: 'examples/accounts.json'
+                $ref: 'examples/account/all.json'
         '404':
           description: User not found
           content:
             application/json:
               schema:
-                $ref: 'schemas/account_error.yaml'
+                $ref: 'schemas/account/error.yaml'
               example:
                 $ref: 'examples/error.json'
         '400':
@@ -212,7 +212,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'schemas/account_error.yaml'
+                $ref: 'schemas/account/error.yaml'
               example:
                 $ref: 'examples/error.json'
   /users/{user_id}/accounts/{account_id}:
@@ -237,15 +237,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'schemas/account.yaml'
+                $ref: 'schemas/account/model.yaml'
               example:
-                $ref: 'examples/account.json'
+                $ref: 'examples/account/model.json'
         '404':
           description: User/Account not found
           content:
             application/json:
               schema:
-                $ref: 'schemas/account_error.yaml'
+                $ref: 'schemas/account/error.yaml'
               example:
                 $ref: 'examples/error.json'
         '400':
@@ -253,7 +253,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'schemas/account_error.yaml'
+                $ref: 'schemas/account/error.yaml'
               example:
                 $ref: 'examples/error.json'
     patch:
@@ -265,9 +265,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'schemas/account_patch.yaml'
+              $ref: 'schemas/account/patch.yaml'
             example:
-              $ref: 'examples/account_patch.json'
+              $ref: 'examples/account/patch.json'
       responses:
         '204':
           description: Successfuly updated money account
@@ -276,7 +276,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'schemas/account_error.yaml'
+                $ref: 'schemas/account/error.yaml'
               example:
                 $ref: 'examples/error.json'
         '400':
@@ -284,7 +284,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'schemas/account_error.yaml'
+                $ref: 'schemas/account/error.yaml'
               example:
                 $ref: 'examples/error.json'
     delete:
@@ -298,7 +298,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'schemas/account_error.yaml'
+                $ref: 'schemas/account/error.yaml'
               example:
                 $ref: 'examples/error.json'
         '400':
@@ -306,7 +306,189 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'schemas/account_error.yaml'
+                $ref: 'schemas/account/error.yaml'
+              example:
+                $ref: 'examples/error.json'
+  /users/{user_id}/accounts/{account_id}/transactions:
+    parameters:
+      - in: path
+        name: user_id
+        required: true
+        schema:
+          type: integer
+      - in: path
+        name: account_id
+        required: true
+        schema:
+          type: integer
+    post:
+      summary: Create new transaction
+      tags:
+        - accounts
+        - transactions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas/transaction/post.yaml'
+            example:
+              $ref: 'examples/transaction/post.json'
+      responses:
+        '201':
+          description: New transaction data
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/transaction/model.yaml'
+              example:
+                $ref: 'examples/transaction/model.json'
+        '404':
+          description: User/Account not found
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/transaction/error.yaml'
+              example:
+                $ref: 'examples/error.json'
+        '400':
+          description: Expected error happened
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/transaction/error.yaml'
+              example:
+                $ref: 'examples/error.json'
+    get:
+      summary: Fetch all transactions
+      tags:
+        - accounts
+        - transactions
+      responses:
+        '200':
+          description: Account transactions
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/transaction/model.yaml'
+              example:
+                $ref: 'examples/transaction/all.json'
+        '404':
+          description: User/Account not found
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/transaction/error.yaml'
+              example:
+                $ref: 'examples/error.json'
+        '400':
+          description: Expected error happened
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/transaction/error.yaml'
+              example:
+                $ref: 'examples/error.json'
+  /users/{user_id}/accounts/{account_id}/transactions/{transaction_id}:
+    parameters:
+      - in: path
+        name: user_id
+        required: true
+        schema:
+          type: integer
+      - in: path
+        name: account_id
+        required: true
+        schema:
+          type: integer
+      - in: path
+        name: transaction_id
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Fetch transaction data
+      tags:
+        - accounts
+        - transactions
+      responses:
+        '200':
+          description: Money account transaction
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/transaction/model.yaml'
+              example:
+                $ref: 'examples/transaction/model.json'
+        '404':
+          description: User/Account/Transaction not found
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/transaction/error.yaml'
+              example:
+                $ref: 'examples/error.json'
+        '400':
+          description: Expected error happened
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/transaction/error.yaml'
+              example:
+                $ref: 'examples/error.json'
+    patch:
+      summary: Update money account transaction data
+      tags:
+        - accounts
+        - transactions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas/transaction/patch.yaml'
+            example:
+              $ref: 'examples/transaction/patch.json'
+      responses:
+        '204':
+          description: Successfuly updated money account transaction
+        '404':
+          description: User/Account/Transaction not found
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/transaction/error.yaml'
+              example:
+                $ref: 'examples/error.json'
+        '400':
+          description: Expected error happened
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/transaction/error.yaml'
+              example:
+                $ref: 'examples/error.json'
+    delete:
+      tags:
+        - accounts
+        - transactions
+      responses:
+        '204':
+          description: Successfuly deleted money account transaction
+        '404':
+          description: User/Account/Transaction not found
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/transaction/error.yaml'
+              example:
+                $ref: 'examples/error.json'
+        '400':
+          description: Expected error happened
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/transaction/error.yaml'
               example:
                 $ref: 'examples/error.json'
   /account-types:
@@ -320,9 +502,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'schemas/account_types.yaml'
+                $ref: 'schemas/account/types.yaml'
               example:
-                $ref: 'examples/account_types.json'
+                $ref: 'examples/account/types.json'
   /account-icons:
     get:
       summary: Fetch existing money account icons
@@ -334,9 +516,176 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'schemas/account_icons.yaml'
+                $ref: 'schemas/account/icons.yaml'
               example:
-                $ref: 'examples/account_icons.json'
+                $ref: 'examples/account/icons.json'
+  /users/{user_id}/categories:
+    parameters:
+      - in: path
+        name: user_id
+        required: true
+        schema:
+          type: integer
+    post:
+      summary: Create new category
+      tags:
+        - categories
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas/category/post.yaml'
+            example:
+              $ref: 'examples/category/post.json'
+      responses:
+        '201':
+          description: New category data
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/category/model.yaml'
+              example:
+                $ref: 'examples/category/model.json'
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/category/error.yaml'
+              example:
+                $ref: 'examples/error.json'
+        '400':
+          description: Expected error happened
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/category/error.yaml'
+              example:
+                $ref: 'examples/error.json'
+    get:
+      summary: Fetch all user categories
+      tags:
+        - categories
+      responses:
+        '200':
+          description: User's categories
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/category/model.yaml'
+              example:
+                $ref: 'examples/categorie/all.json'
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/category/error.yaml'
+              example:
+                $ref: 'examples/error.json'
+        '400':
+          description: Expected error happened
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/category/error.yaml'
+              example:
+                $ref: 'examples/error.json'
+  /users/{user_id}/categories/{category_id}:
+    parameters:
+      - in: path
+        name: user_id
+        required: true
+        schema:
+          type: integer
+      - in: path
+        name: category_id
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Fetch category data
+      tags:
+        - categories
+      responses:
+        '200':
+          description: User's category
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/category/model.yaml'
+              example:
+                $ref: 'examples/category/model.json'
+        '404':
+          description: User/Category not found
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/category/error.yaml'
+              example:
+                $ref: 'examples/error.json'
+        '400':
+          description: Expected error happened
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/category/error.yaml'
+              example:
+                $ref: 'examples/error.json'
+    patch:
+      summary: Update user category
+      tags:
+        - categories
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'schemas/category/patch.yaml'
+            example:
+              $ref: 'examples/category/patch.json'
+      responses:
+        '204':
+          description: Successfuly updated category
+        '404':
+          description: User/Category not found
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/category/error.yaml'
+              example:
+                $ref: 'examples/error.json'
+        '400':
+          description: Expected error happened
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/category/error.yaml'
+              example:
+                $ref: 'examples/error.json'
+    delete:
+      tags:
+        - categories
+      responses:
+        '204':
+          description: Successfuly deleted user category
+        '404':
+          description: User/Category not found
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/category/error.yaml'
+              example:
+                $ref: 'examples/error.json'
+        '400':
+          description: Expected error happened
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/category/error.yaml'
+              example:
+                $ref: 'examples/error.json'
   /category-icons:
     get:
       summary: Fetch existing category icons
@@ -348,9 +697,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'schemas/category_icons.yaml'
+                $ref: 'schemas/category/icons.yaml'
               example:
-                $ref: 'examples/category_icons.json'
+                $ref: 'examples/category/icons.json'
   /currencies:
     get:
       summary: Fetch existing currencies

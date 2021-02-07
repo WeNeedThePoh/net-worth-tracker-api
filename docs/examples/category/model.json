@@ -1,0 +1,7 @@
+{
+    "id": 2,
+    "name": "car",
+    "type": "expense",
+    "icon_id": 1,
+    "color": "#000000"
+}

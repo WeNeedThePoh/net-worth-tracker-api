@@ -1,0 +1,16 @@
+[
+    {
+        "id": 2,
+        "name": "car",
+        "type": "expense",
+        "icon_id": 1,
+        "color": "#000000"
+    },
+    {
+        "id": 3,
+        "name": "car",
+        "type": "income",
+        "icon_id": 1,
+        "color": "#000000"
+    }
+]

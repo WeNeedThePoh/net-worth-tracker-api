@@ -1,0 +1,21 @@
+type: object
+properties:
+  amount:
+    type: float
+  description:
+    type: string
+  type:
+    type: string
+    enum: [expense, income, transfer]
+  currency_id:
+    type: int
+  category_id:
+    type: int
+  transfer_account_id:
+    type: int
+  location:
+    type: string
+required:
+  - amount
+  - type
+  - category_id

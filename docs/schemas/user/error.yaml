@@ -1,0 +1,8 @@
+type: object
+properties:
+  error:
+    type: string
+  code:
+    type: string
+    enum: [USER_NOT_FOUND, INVALID_USER_DATA, ERROR_UPDATE_USER, DUPLICATE_USER, ERROR_CREATE_USER, ERROR_DELETE_USER]
+    

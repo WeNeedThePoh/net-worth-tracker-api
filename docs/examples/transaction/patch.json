@@ -1,0 +1,7 @@
+{
+    "amount": 10,
+    "description": "dinner",
+    "type": "expense",
+    "currency_id": 1,
+    "category_id": 2
+}
