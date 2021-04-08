@@ -22,5 +22,5 @@
         "type": "cash",
         "icon": "/path/to/icon.svg",
         "color": "#000000"
-    },
+    }
 ]

@@ -1,17 +1,10 @@
-openapi: 3.0.3
+openapi: 3.1.0
 servers:
-  - url: '{scheme}://api.xxx.com'
-    variables:
-      scheme:
-        description: 'The Net Worth tracker REST API is accessible via https and http'
-        enum:
-          - 'https'
-          - 'http'
-        default: 'https'
+  - url: 'https://api.xxx.com'
 info:
   description: >-
     This API is to serve the new worth platform web and mobile. An REST API built to be fast, flexible and simple.
-  version: 1.0.0
+  version: 0.1.0
   title: Net Worth Tracker API
   contact:
     name: WeNeedThePoh
@@ -167,9 +160,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'schemas/model.yaml'
+                $ref: 'schemas/account/model.yaml'
               example:
-                $ref: 'examples/model.json'
+                $ref: 'examples/account/model.json'
         '404':
           description: User not found
           content:
@@ -575,7 +568,7 @@ paths:
               schema:
                 $ref: 'schemas/category/model.yaml'
               example:
-                $ref: 'examples/categorie/all.json'
+                $ref: 'examples/category/all.json'
         '404':
           description: User not found
           content:
