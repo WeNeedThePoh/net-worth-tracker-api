@@ -6,9 +6,9 @@ log:
   level: ${APP_LOG_LEVEL}
 
 db:
-  host: ${DB_HOST}
-  port: ${DB_PORT}
-  name: ${DB_NAME}
-  user: ${DB_USER}
-  password: ${DB_PASSWORD}
-  ssl: ${DB_SSL}
+  host: DB_HOST
+  port: DB_PORT
+  name: DB_NAME
+  user: DB_USER
+  password: DB_PASSWORD
+  ssl: DB_SSL
