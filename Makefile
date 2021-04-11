@@ -3,6 +3,8 @@ ifndef DATABASE_URL
 	DATABASE_URL = postgres://root:rootadmin@localhost:5433/net_worth?sslmode=disable
 endif
 
+MIGRATION_COMMAND = migrate
+
 build:
 	go build -o bin/server cmd/server/main.go
 
@@ -26,10 +28,12 @@ create_migration:
 
 migrate:
 ifeq (, $(shell which migrate))
-	go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
+	curl -L https://github.com/golang-migrate/migrate/releases/download/v4.14.1/migrate.linux-amd64.tar.gz | tar xvz
+	chmod +x migrate.linux-amd64
+	MIGRATION_COMMAND = ./migrate.linux-amd64
 endif
 
-	migrate -database ${DATABASE_URL} -path db/migrations up
+	${MIGRATION_COMMAND} -database ${DATABASE_URL} -path db/migrations up
 
 migrate_down:
 	migrate -database ${DATABASE_URL} -path db/migrations down
