@@ -1,9 +1,9 @@
 serve:
   public:
-    port: ${APP_PORT}
+    port: 5000
 
 log:
-  level: ${APP_LOG_LEVEL}
+  level: debug
 
 db:
   host: DB_HOST
