@@ -1,0 +1,14 @@
+version: '3'
+services:
+  db:
+    container_name: postgres_net_worth_api
+    image: postgres:13.2
+    restart: unless-stopped
+    environment:
+        POSTGRES_DB: 'net_worth'
+        POSTGRES_USER: 'root'
+        POSTGRES_PASSWORD: 'rootadmin'
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./db:/var/lib/postgresql

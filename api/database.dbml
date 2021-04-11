@@ -21,7 +21,7 @@ Table currencies {
 Table accounts {
   id int [pk, increment]
   user_id int [ref: > users.id, not null]//In a shared account this indicates the owner.
-  type int [ref: > account_types.id]
+  type_id int [ref: > account_types.id]
   currency_id int [ref: > currencies.id]
   name varchar [not null]
   initial_amount float [default: 0]
@@ -63,8 +63,8 @@ Table transactions {
 Table categories {
   id int [pk, increment]
   user_id int [ref: > users.id, default: null]
+  type_id int [ref: > transaction_types.id]
   name varchar [not null]
-  type int [ref: > transaction_types.id]
   icon varchar [not null]
   color varchar [not null]
 }
