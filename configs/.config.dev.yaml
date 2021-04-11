@@ -1,0 +1,14 @@
+serve:
+  public:
+    port: 23020
+
+log:
+  level: debug
+
+db:
+  host: host.docker.internal
+  port: 5433
+  name: net_worth
+  user: root
+  password: rootadmin
+  ssl: disable

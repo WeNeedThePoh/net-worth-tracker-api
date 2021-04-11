@@ -1,5 +1,12 @@
 version: '3'
 services:
+  net-worth-tracker-api:
+    container_name: net_worth_tracker_api
+    build: .
+    ports:
+      - "23020:23020"
+    volumes:
+      - ../net-worth-tracker-api:/app
   db:
     container_name: postgres_net_worth_api
     image: postgres:13.2
