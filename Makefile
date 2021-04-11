@@ -30,7 +30,7 @@ migrate:
 ifeq (, $(shell which migrate))
 	curl -L https://github.com/golang-migrate/migrate/releases/download/v4.14.1/migrate.linux-amd64.tar.gz | tar xvz
 	chmod +x migrate.linux-amd64
-	MIGRATION_COMMAND = ./migrate.linux-amd64
+	$(eval MIGRATION_COMMAND = ./migrate.linux-amd64)
 endif
 
 	${MIGRATION_COMMAND} -database ${DATABASE_URL} -path db/migrations up
