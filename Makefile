@@ -26,9 +26,7 @@ create_migration:
 
 migrate:
 ifeq (, $(shell which migrate))
-	curl -L https://github.com/golang-migrate/migrate/releases/download/v4.14.1/migrate.linux-amd64.tar.gz | tar xvz
-	chmod +x migrate.linux-amd64
-	mv migrate.linux-amd64 migrate
+	go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
 endif
 
 	migrate -database ${DATABASE_URL} -path db/migrations up
