@@ -16,6 +16,7 @@ prepare_config:
 	sed -i -e "s/DB_USER/${DB_USER}/g" ./configs/.config.yaml
 	sed -i -e "s/DB_PASSWORD/${DB_PASSWORD}/g" ./configs/.config.yaml
 	sed -i -e "s/DB_SSL/${DB_SSL}/g" ./configs/.config.yaml
+	sed -i -e "s/PORT/${PORT}/g" ./configs/.config.yaml
 
 run:
 	go run cmd/server/main.go

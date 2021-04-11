@@ -1,6 +1,6 @@
 serve:
   public:
-    port: 5000
+    port: PORT
 
 log:
   level: debug
