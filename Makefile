@@ -10,12 +10,12 @@ build:
 
 prepare_config:
 	cp configs/.config.prod.yaml configs/.config.yaml
-	sed "s/DB_HOST/$DB_HOST/g" -i configs/.config.yaml
-	sed "s/DB_PORT/$DB_PORT/g" -i configs/.config.yaml
-	sed "s/DB_NAME/$DB_NAME/g" -i configs/.config.yaml
-	sed "s/DB_USER/$DB_USER/g" -i configs/.config.yaml
-	sed "s/DB_PASSWORD/$DB_PASSWORD/g" -i configs/.config.yaml
-	sed "s/DB_SSL/$DB_SSL/g" -i configs/.config.yaml
+	sed -i -e "s/DB_HOST/${DB_HOST}/g" ./configs/.config.yaml
+	sed -i -e "s/DB_PORT/${DB_PORT}/g" ./configs/.config.yaml
+	sed -i -e "s/DB_NAME/${DB_NAME}/g" ./configs/.config.yaml
+	sed -i -e "s/DB_USER/${DB_USER}/g" ./configs/.config.yaml
+	sed -i -e "s/DB_PASSWORD/${DB_PASSWORD}/g" ./configs/.config.yaml
+	sed -i -e "s/DB_SSL/${DB_SSL}/g" ./configs/.config.yaml
 
 run:
 	go run cmd/server/main.go
