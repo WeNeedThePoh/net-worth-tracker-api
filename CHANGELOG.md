@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Migration command when deploying to production
 - Production config file env variables parser
 
+### Added
+- Unit tests
+
 ## [0.1.0-alpha] - 2021-04-11
 ### Added
 - Health check endpoint
