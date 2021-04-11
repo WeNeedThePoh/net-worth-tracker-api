@@ -1,1 +1,1 @@
-web: make migrate; bin/server
+web: make migrate; mv configs/.config.prod.yaml configs/.config.yaml; bin/server

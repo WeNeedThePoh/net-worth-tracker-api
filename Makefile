@@ -25,6 +25,12 @@ create_migration:
 	migrate create -ext sql -dir db/migrations -seq $(name)
 
 migrate:
+ifeq (, $(shell which migrate))
+	curl -L https://github.com/golang-migrate/migrate/releases/download/v4.14.1/migrate.linux-amd64.tar.gz | tar xvz
+	chmod +x migrate.linux-amd64
+	mv migrate.linux-amd64 migrate
+endif
+
 	migrate -database ${DATABASE_URL} -path db/migrations up
 
 migrate_down:
