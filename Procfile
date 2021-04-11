@@ -1,1 +1,1 @@
-web: bin/server
+web: make migrate; bin/server
