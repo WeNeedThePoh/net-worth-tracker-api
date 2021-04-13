@@ -1,15 +1,37 @@
 openapi: 3.1.0
 servers:
-  - url: 'https://api.xxx.com'
+  - url: 'https://net-worth-tracker-api.herokuapp.com'
 info:
   description: >-
     This API is to serve the new worth platform web and mobile. An REST API built to be fast, flexible and simple.
-  version: 0.1.0
+  version: 0.1.1-alpha
   title: Net Worth Tracker API
   contact:
     name: WeNeedThePoh
     url: 'https://github.com/WeNeedThePoh'
 paths:
+  /health:
+    get:
+      summary: Health check endpoint
+      tags:
+       - health
+      responses:
+        200:
+          description: All systems are in good health
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/health_response.yaml'
+              example:
+                $ref: 'examples/health_response.json'
+        503:
+          description: All or some systems are not responding or throwing errors
+          content:
+            application/json:
+              schema:
+                $ref: 'schemas/health_response.yaml'
+              example:
+                $ref: 'examples/health_response_error.json'
   /sign-in:
     post:
       summary: Social sign-in
